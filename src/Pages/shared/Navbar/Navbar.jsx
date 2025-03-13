@@ -21,7 +21,7 @@ const Navbar = () => {
                 >
                     <a href="#home">
                         <img
-                            className="w-[250px] max-sm:w-[150px] md:w-[350px] lg:w-[300px]"
+                            className="w-[250px] max-sm:w-[150px]  md::w-[240px]"
                             src="https://i.ibb.co.com/bgjrnvfm/b5cf023abd09ddbe26dac95eebfedf04.png"
                             alt="Logo"
                         />
@@ -84,18 +84,22 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute top-0 left-0 w-full bg-base-100 shadow-xl p-5 z-50`}>
+
+            <div
+                className={`lg:hidden ${menuOpen ? 'block' : 'hidden'} absolute top-0 left-0 w-full bg-cover bg-center bg-opacity-65 bg-blur shadow-xl p-5 z-50`}
+                style={{ backgroundImage: "url('https://i.ibb.co.com/s9VYnbZ4/360-F-584813294-c-MWq5-FAJDHKFCyj-Iw-B3-SYFPTumvu-UARK.jpg')" }} // Add your background image URL here
+            >
                 <div className="flex justify-between">
                     {/* Close icon inside mobile menu */}
-                    <IoMdClose className="text-3xl cursor-pointer" onClick={closeMenu} />
+                    <IoMdClose className="text-3xl cursor-pointer text-white" onClick={closeMenu} />
                 </div>
 
                 {/* Animated Mobile Menu Items (With Existing Slide-In Animation) */}
                 <ul className="flex text-xl flex-col gap-6 mt-5">
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out`}>Home</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-200`}>Vehicles</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-400`}>About Us</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-600`}>Contact Us</li>
+                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out text-white`}>Home</li>
+                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-200 text-white`}>Vehicles</li>
+                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-400 text-white`}>About Us</li>
+                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-600 text-white`}>Contact Us</li>
 
                     {/* "Booking Now" Button for Mobile */}
                     <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-800`}>
@@ -105,6 +109,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+
         </div>
     );
 };
