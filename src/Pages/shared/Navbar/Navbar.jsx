@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { FaBars } from 'react-icons/fa';
 import { motion } from 'framer-motion'; // Import framer-motion
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
     const closeMenu = () => setMenuOpen(false); // Close the menu
 
     return (
-        <div className="sticky font-Poppins top-0 z-50 mx-auto sm:w-full md:w-full lg:w-full bg-base-100 shadow-2xl">
+        <div className="sticky  font-Poppins top-0 z-50 mx-auto sm:w-full md:w-full lg:w-full bg-base-100 shadow-2xl">
             <div className="flex items-center justify-between px-6 py-4">
                 {/* Logo with animation */}
                 <motion.div
@@ -19,49 +20,59 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}   // End state for animation
                     transition={{ duration: 1, delay: 0.2 }} // Add delay and duration for smooth effect
                 >
-                    <a href="#home">
-                        <img
-                            className="w-[250px] max-sm:w-[150px]  md::w-[240px]"
-                            src="https://i.ibb.co.com/bgjrnvfm/b5cf023abd09ddbe26dac95eebfedf04.png"
-                            alt="Logo"
-                        />
-                    </a>
+                    <Link to='/'>
+                        <a href="#home">
+                            <img
+                                className="w-[250px] max-sm:w-[150px]  md::w-[240px]"
+                                src="https://i.ibb.co.com/bgjrnvfm/b5cf023abd09ddbe26dac95eebfedf04.png"
+                                alt="Logo"
+                            />
+                        </a>
+                    </Link>
                 </motion.div>
 
                 {/* Menu for larger screens (Laptop/Desktop) */}
                 <ul className="hidden font-Poppins lg:flex gap-12 text-xl lg:text-2xl">
-                    <motion.li
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.4 }}
-                        className="font-bold opacity-95 hover:opacity-100 cursor-pointer"
-                    >
-                        Home
-                    </motion.li>
-                    <motion.li
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="opacity-95 hover:opacity-100 cursor-pointer"
-                    >
-                        Vehicles
-                    </motion.li>
-                    <motion.li
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8 }}
-                        className="opacity-95 hover:opacity-100 cursor-pointer"
-                    >
-                        About Us
-                    </motion.li>
-                    <motion.li
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 1 }}
-                        className="opacity-75 hover:opacity-100 cursor-pointer"
-                    >
-                        Contact Us
-                    </motion.li>
+                    <Link to='/'>
+                        <motion.li
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.4 }}
+                            className="font-bold opacity-95 hover:opacity-100 cursor-pointer"
+                        >
+                            Home
+                        </motion.li>
+                    </Link>
+                    <Link to='/vehicles'>
+                        <motion.li
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.6 }}
+                            className="opacity-95 hover:opacity-100 cursor-pointer"
+                        >
+                            Vehicles
+                        </motion.li>
+                    </Link>
+                    <Link to='/about'>
+                        <motion.li
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.8 }}
+                            className="opacity-95 hover:opacity-100 cursor-pointer"
+                        >
+                            About Us
+                        </motion.li>
+                    </Link>
+                    <Link to='/contactus'>
+                        <motion.li
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 1 }}
+                            className="opacity-75 hover:opacity-100 cursor-pointer"
+                        >
+                            Contact Us
+                        </motion.li>
+                    </Link>
                 </ul>
 
                 {/* "Order Now" Button for Desktop */}
@@ -71,7 +82,7 @@ const Navbar = () => {
                     transition={{ duration: 1, delay: 1.2 }}
                     className="hidden lg:flex items-center bg-[#2572D3] text-xl border-2 p-2 gap-1 text-white font-bold h-[50px] hover:bg-gradient-to-r from-red-600 to-orange-500"
                 >
-                    Booking Now
+                    Login Now
                 </motion.button>
 
                 {/* Hamburger Menu Icon for Mobile */}
@@ -96,15 +107,15 @@ const Navbar = () => {
 
                 {/* Animated Mobile Menu Items (With Existing Slide-In Animation) */}
                 <ul className="flex text-xl flex-col gap-6 mt-5">
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out text-white`}>Home</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-200 text-white`}>Vehicles</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-400 text-white`}>About Us</li>
-                    <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-600 text-white`}>Contact Us</li>
+                    <Link to='/'> <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out text-white`}>Home</li></Link>
+                  <Link to='/vehicles'>  <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-200 text-white`}>Vehicles</li></Link>
+                    <Link to='/about'><li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-400 text-white`}>About Us</li></Link>
+                    <Link to='/contactus'>      <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-600 text-white`}>Contact Us</li></Link>
 
                     {/* "Booking Now" Button for Mobile */}
                     <li className={`menu-item ${menuOpen ? 'animate-slide' : ''} transition-all duration-1000 ease-out delay-800`}>
                         <button className="flex items-center bg-gradient-to-r from-red-500 to-orange-400 text-sm sm:text-sm border-2 p-2 sm:p-2 gap-1 text-white font-bold h-[50px] w-full">
-                            Booking Now
+                            Login Now
                         </button>
                     </li>
                 </ul>

@@ -11,7 +11,8 @@ export default {
         Poppins: ['Poppins', 'sans-serif'],
       },
       animation: {
-        slide: 'slideIn 1s ease-out forwards', // Add custom slide animation
+        slide: 'slideIn 1s ease-out forwards',
+        marquee: 'marquee 20s linear infinite',
       },
       keyframes: {
         slideIn: {
@@ -24,10 +25,18 @@ export default {
             transform: 'translateY(0)',
           },
         },
+        marquee: {
+          '0%': {
+            transform: 'translateX(0%)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
+        },
       },
     },
   },
   plugins: [
     require('daisyui'),
   ],
-}
+};

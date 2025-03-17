@@ -1,0 +1,28 @@
+/* Gradient animation for the card */
+.car-card {
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    transition: background 0.5s ease;
+}
+
+.car-card:hover {
+    background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .car-card {
+        margin: 0 1rem; /* Add margin on smaller screens */
+    }
+
+    .car-card img {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+
+    .car-card h2 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+    }
+
+    .car-card p {
+        font-size: 1rem; /* Reduce font size for smaller screens */
+    }
+}
